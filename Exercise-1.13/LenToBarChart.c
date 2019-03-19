@@ -2,18 +2,20 @@
 
 #define IN_WORD  1
 #define OUT_WORD 0
-#define CAPACITY 10
+#define CAPACITY 20
 
 int main(int argc, char const *argv[])
 {
-	int c, i, elems, word_len, state;
+	int c, i, elems, state;
 	int words[CAPACITY];
 
 	state = OUT_WORD;
-	elems = word_len = 0;
+	elems = 0;
 
 	for (i = 0; i < CAPACITY; ++i)
 		words[i] = 0;
+
+	printf("Enter characters or press \"Ctrl+D\"\n");
 
 	while ((c = getchar()) != EOF && elems < CAPACITY) {
 		if (c == ' ' || c == '\n' || c == '\t') {
@@ -30,17 +32,20 @@ int main(int argc, char const *argv[])
 		}
 	}
 
-	if (elems == CAPACITY)
-		printf("Word count limit reached\n");
-
-	printf("Your words: \n");
-
 	for (i = 0; i < elems; ++i)
 		printf("Words[%d]: %7c\n", i, words[i]);
 
-	for (i = 0; i < elems; ++i) {
+	if (elems == CAPACITY)
+		printf("Word count limit reached\n");
 
+	printf("Dictionary:\n");
+	for (i = 0; i < elems; ++i) {
+		if (words[i] != ' ') {
+			printf("%c", words[i]);
+		} else printf("\n");
 	}
+	printf("\n");
+
 
 	return 0;
 }
@@ -48,22 +53,22 @@ int main(int argc, char const *argv[])
 /*
 
 		variant 1
-		_________________________
-	   /________________________/|
-	+8|							||
-	+7|							||
-	+6|							||
-	+5|							||
-	+4|			---				||
-	+3| ---     ---				||
-	+2| ---     ---       ---	||
-	+1| ---		---		  ---	||
+	    _________________________
+ 	   /________________________/|
+	+8|                         ||
+	+7|                         ||
+	+6|                         ||
+	+5|                         ||
+	+4|         ---             ||
+	+3| ---     ---             ||
+	+2| ---     ---       ---   ||
+	+1| ---     ---       ---   ||
 	  |_________________________|/
 	    hey		test	  ne
 
 
 
-	    variant 2
+		variant 2
 
 	+8|
 	+7|
@@ -74,6 +79,18 @@ int main(int argc, char const *argv[])
 	+2| <--ne da
 	+1|
 
+
+		variant 3
+
+	+1| t  b  c
+	+2| e  i  h
+	+3| s  d  o
+	+4| t  l  r
+	+5|    o  t
+	+6|
+	+7| 
+	+8|
+	
 
 
 
