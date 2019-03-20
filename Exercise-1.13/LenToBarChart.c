@@ -18,16 +18,13 @@ int main(int argc, char const *argv[])
 	printf("Enter characters or press \"Ctrl+D\"\n");
 
 	while ((c = getchar()) != EOF && elems < CAPACITY) {
-		if (c == ' ' || c == '\n' || c == '\t') {
-			if (state == IN_WORD) {
-				state = OUT_WORD;
-				words[elems] = ' ';
-				++elems;
-			}
-		}
-		else if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')){
+		if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) {
 			state = IN_WORD;
 			words[elems] = c;
+			++elems;
+		} else if (state == IN_WORD) {
+			state = OUT_WORD;
+			words[elems] = ' ';
 			++elems;
 		}
 	}
