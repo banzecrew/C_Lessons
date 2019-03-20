@@ -43,6 +43,24 @@ int main(int argc, char const *argv[])
 	}
 	printf("\n");
 
+	int     _word_len = 0;
+	int _max_word_len = 0;
+
+	for (i = 0; i < elems; ++i) {
+		if (words[i] != ' ') {
+			++_word_len;
+		} else {
+			if (_word_len > _max_word_len)
+				_max_word_len = _word_len;
+			_word_len = 0;
+		}
+	}
+
+
+	printf("Max word len: %d\n", _max_word_len);
+	
+
+
 	return 0;
 }
 
@@ -89,9 +107,21 @@ int main(int argc, char const *argv[])
 	
 
 
+		variant 4
+	
+	_____________
 
-
-
+	bidlo
+	| | | | | 
+	lox
+	| | |
+	chort
+	| | | | |
+	sobaka
+	| | | | | |
+	_____________
+	1-2-3-4-5-6-7
+	+ + + + + + +
 
 
 
