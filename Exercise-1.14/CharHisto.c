@@ -11,7 +11,7 @@ int main(int argc, char const *argv[])
 	int i, j;
 	int symbols[ASCII];
 
-	for (i = 0; i < ASCII; ++i)
+	for (i = 0; i <= ASCII; ++i)
 		symbols[i] = 0;
 
 	while ((c = getchar()) != EOF) {
@@ -19,15 +19,15 @@ int main(int argc, char const *argv[])
 			++symbols[c];
 	}
 
-	for (i = 0; i < ASCII; ++i) {
+	for (i = 0; i <= ASCII; ++i) {
 		if (i % 4 == 0)
 			putchar('\n');
-		printf("symbols[%c] = %d ", i, symbols[i]);
+		printf("symbols[%d] = %d ", i, symbols[i]);
 	}
 
 	putchar('\n');
 
-	for (i = 0; i < ASCII; ++i) {
+	for (i = 0; i <= ASCII; ++i) {
 		if (symbols[i] > 0) {
 
 			if (i == SPACE) {
