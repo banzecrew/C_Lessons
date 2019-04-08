@@ -1,6 +1,6 @@
-# C_Lessons
+# What is it
 
-There are all tasks from the book "The-C-programming-language-3rd-edition"
+This is all solutions for tasks from the book "The-C-programming-language-3rd-edition"
 
 # How to compile
 
