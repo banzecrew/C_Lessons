@@ -1,62 +1,43 @@
 #include <stdio.h>
 
-#define LIMIT 100
+#define MAXLEN 100
 #define TAB   9
 #define SPACE 32
 
-
-int FillStr(char str[], int lim);
-void PrintStr(char str[]);
-
+int GetStr(char str[], int lim);
 
 int main(int argc, char const *argv[])
 {
-	char str[LIMIT];
-	int  c;
+	int c;
+	char str[MAXLEN];
 
-	printf("Enter a string or press CtrL+D\n");
-
-	while ((c = FillStr(str, LIMIT))) {
-		PrintStr(str);
-	}
+	while ((c = GetStr(str, MAXLEN)))
+		printf("%s\n", str);
 
 	return 0;
 }
 
-int FillStr(char str[], int lim)
+int GetStr(char str[], int lim)
 {
 	int c, i;
+	int isSpace;
 
-	for (i = 0; i < (lim - 1) && (c = getchar()) != EOF && c != '\n'; ++i) {
-		str[i] = c;
+	i = isSpace = 0;
+
+	while (i < (lim - 1) && (c = getchar()) != EOF && c != '\n') {
+		if (c == TAB || c == SPACE) {
+			if (!isSpace) {
+				str[i] = ' ';
+				isSpace = 1;
+			}
+		} else {
+			str[i] = c;
+			isSpace = 0;
+		}
+		++i;
 	}
 
 	str[i] = '\0';
 
-	if (c == '\n')
-		++i;
-
 	return i;
-}
-
-void PrintStr(char str[])
-{
-	int state;
-	int i;
-
-	i = state = 0;
-
-	while (str[i] != '\0') {
-		if (str[i] == TAB || str[i] == SPACE) {
-			if (!state) {
-				putchar(' ');
-				state = 1;
-			}
-		} else {
-			state = 0;
-			printf("%c", str[i]);
-		}
-		++i;
-	}
-	putchar('\n');
 }
