@@ -14,6 +14,7 @@ int main(int argc, char const *argv[])
 	while ((c = GetStr(str, MAXLEN)))
 		printf("%s\n", str);
 
+
 	return 0;
 }
 
