@@ -22,7 +22,7 @@ int getstrlen(char line[], int lim, int step)
 {
 	int c, i;
 
-	for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n';)
+	for (i = 0; i < (lim - 1) && (c = getchar()) != EOF && c != '\n';)
 		line[i++] = c;
 
 	if (c == '\n')

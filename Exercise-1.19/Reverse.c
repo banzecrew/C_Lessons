@@ -2,38 +2,90 @@
 
 #define MAXLEN 15
 
-int getline(char str[], int lim);
-void reverse();
+int getline(char line[], int lim);
+void reverse(char line[]);
 
 
 int main(int argc, char const *argv[])
 {
-	int   c;
-	char  in_str[MAXLEN];
-	char out_str[MAXLEN];
-
-	while ((c = getline(in_str, MAXLEN)) > 0) {
-
+	int  c;
+	char str[MAXLEN];
+/*
+	while ((c = getline(str, MAXLEN)) > 0) {
+		printf("Original string: %s\n", str);
+		reverse(str);
+		printf("Reversed string: %s\n", str);
 	}
+	*/
+
+	getline(str, MAXLEN);
+	printf("%s\n", str);
+	reverse(str);
+	printf("%s\n", str);
 
 
 	return 0;
 }
 
-int getline(char str[], int lim)
+int getline(char line[], int lim)
 {
 	int c, i;
 
 	for (i = 0; i < (lim - 1) && (c = getchar()) != EOF && c != '\n'; ++i)
-			str[i] = c;
+			line[i] = c;
 
-	str[i] = '\0';
-
-	if (c == '\n')
-		++i;
-
-	printf("%d\n", i);
+	line[i++] = '\0';
 
 
 	return i;
 }
+
+void reverse(char line[])
+{
+	int begin;
+	int mid, end;
+
+	end = 0;
+
+	while (line[end] != '\0')
+		++end;
+
+	mid = end / 2;
+
+	if (end > 1) {
+		if (mid / 2 == 0) {
+			for (i = 0; begin <= mid; ++i) {
+				line[begin] = line[end] + line[end];
+				line[end]   = line[begin] / 2;
+				line[begin] = line[begin] / 2;
+				--end;
+			}
+		} else {
+				line[begin] = line[end] + line[end];
+				line[end]   = line[begin] / 2;
+				line[begin] = line[begin] / 2;
+				--end;
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
