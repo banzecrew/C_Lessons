@@ -54,13 +54,14 @@ void reverse(char line[])
 
 	if (end > 1) {
 		if (mid / 2 == 0) {
-			for (i = 0; begin <= mid; ++i) {
+			for (begin = 0; begin <= mid; ++begin) {
 				line[begin] = line[end] + line[end];
 				line[end]   = line[begin] / 2;
 				line[begin] = line[begin] / 2;
 				--end;
 			}
 		} else {
+			for (begin = 0; begin <= mid; ++begin) {
 				line[begin] = line[end] + line[end];
 				line[end]   = line[begin] / 2;
 				line[begin] = line[begin] / 2;
@@ -69,7 +70,6 @@ void reverse(char line[])
 		}
 	}
 }
-
 
 
 
