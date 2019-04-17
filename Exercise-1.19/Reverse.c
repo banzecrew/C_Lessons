@@ -2,32 +2,44 @@
 
 #define MAXLEN 15
 
-int getline(char line[], int lim);
-void reverse(char line[]);
+int getline(int line[], int lim);
+void reverse(int line[]);
 
 
 int main(int argc, char const *argv[])
 {
 	int  c;
-	char str[MAXLEN];
+	int str[MAXLEN];
 /*
 	while ((c = getline(str, MAXLEN)) > 0) {
-		printf("Original string: %s\n", str);
-		reverse(str);
-		printf("Reversed string: %s\n", str);
+		printf("Original string: %ls\n", str);
 	}
 	*/
-
 	getline(str, MAXLEN);
-	printf("%s\n", str);
-	reverse(str);
-	printf("%s\n", str);
 
+	for (c = 0; c <= MAXLEN; ++c)
+		printf("%d ", str[c]);
+
+	putchar('\n');
+
+	printf("Source string: %ls\n", str);
+
+	putchar('\n');
+
+	reverse(str);
+
+	printf("Processed string: %ls\n", str);
+
+	for (c = 0; c <= MAXLEN; ++c)
+		printf("%d ", str[c]);
+
+	putchar('\n');
+	
 
 	return 0;
 }
 
-int getline(char line[], int lim)
+int getline(int line[], int lim)
 {
 	int c, i;
 
@@ -40,7 +52,7 @@ int getline(char line[], int lim)
 	return i;
 }
 
-void reverse(char line[])
+void reverse(int line[])
 {
 	int begin;
 	int mid, end;
@@ -50,21 +62,25 @@ void reverse(char line[])
 	while (line[end] != '\0')
 		++end;
 
+	--end;
+
 	mid = end / 2;
 
-	if (end > 1) {
-		if (mid / 2 == 0) {
-			for (begin = 0; begin < mid; ++begin) {
-				line[begin] = line[end] + line[end];
-				line[end]   = line[begin] / 2;
-				line[begin] = line[begin] / 2;
+	printf("end: %d mid: %d\n", end, mid);
+
+	if (end >= 1) {
+		if (mid % 2 == 0) {
+			for (begin = 0; begin <= mid; ++begin) {
+				line[begin] = line[begin] + line[end];
+				line[end]   = line[begin] - line[end];
+				line[begin] = line[begin] - line[end];
 				--end;
 			}
 		} else {
-			for (begin = 0; begin <= mid; ++begin) {
-				line[begin] = line[end] + line[end];
-				line[end]   = line[begin] / 2;
-				line[begin] = line[begin] / 2;
+			for (begin = 0; begin < mid; ++begin) {
+				line[begin] = line[begin] + line[end];
+				line[end]   = line[begin] - line[end];
+				line[begin] = line[begin] - line[end];
 				--end;
 			}
 		}
