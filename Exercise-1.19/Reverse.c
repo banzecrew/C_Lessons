@@ -8,10 +8,10 @@ void reverse(int line[]);
 
 int main(int argc, char const *argv[])
 {
-	int  c;
+	int c;
 	int str[MAXLEN];
 
-	printf("Enter string or press Ctrl\n");
+	printf("Enter string or press Ctrl+C\n");
 
 	while ((c = getline(str, MAXLEN))) {
 		printf("Original  string: %ls\n", str);
