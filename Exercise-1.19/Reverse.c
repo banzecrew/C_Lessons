@@ -10,32 +10,15 @@ int main(int argc, char const *argv[])
 {
 	int  c;
 	int str[MAXLEN];
-/*
-	while ((c = getline(str, MAXLEN)) > 0) {
-		printf("Original string: %ls\n", str);
+
+	printf("Enter string or press Ctrl\n");
+
+	while ((c = getline(str, MAXLEN))) {
+		printf("Original  string: %ls\n", str);
+		reverse(str);
+		printf("Processed string: %ls\n", str);
 	}
-	*/
-	getline(str, MAXLEN);
-
-	for (c = 0; c <= MAXLEN; ++c)
-		printf("%d ", str[c]);
-
-	putchar('\n');
-
-	printf("Source string: %ls\n", str);
-
-	putchar('\n');
-
-	reverse(str);
-
-	printf("Processed string: %ls\n", str);
-
-	for (c = 0; c <= MAXLEN; ++c)
-		printf("%d ", str[c]);
-
-	putchar('\n');
 	
-
 	return 0;
 }
 
@@ -47,7 +30,6 @@ int getline(int line[], int lim)
 			line[i] = c;
 
 	line[i++] = '\0';
-
 
 	return i;
 }
@@ -64,44 +46,14 @@ void reverse(int line[])
 
 	--end;
 
-	mid = end / 2;
-
-	printf("end: %d mid: %d\n", end, mid);
+	mid = (end + 1) / 2;
 
 	if (end >= 1) {
-		if (mid % 2 == 0) {
-			for (begin = 0; begin <= mid; ++begin) {
-				line[begin] = line[begin] + line[end];
-				line[end]   = line[begin] - line[end];
-				line[begin] = line[begin] - line[end];
-				--end;
-			}
-		} else {
-			for (begin = 0; begin < mid; ++begin) {
-				line[begin] = line[begin] + line[end];
-				line[end]   = line[begin] - line[end];
-				line[begin] = line[begin] - line[end];
-				--end;
-			}
+		for (begin = 0; begin < mid; ++begin) {
+			line[begin] = line[begin] + line[end];
+			line[end]   = line[begin] - line[end];
+			line[begin] = line[begin] - line[end];
+			--end;
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
