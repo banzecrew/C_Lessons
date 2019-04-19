@@ -55,7 +55,7 @@ int getlen(int line[])
 {
 	int i;
 
-	for (i = 0; line[i] != '\0'; ++i) {}
+	for (i = 0; line[i] != '\0'; ++i);
 
 	return i - 1;
 }
