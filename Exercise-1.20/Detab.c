@@ -3,11 +3,11 @@
 #define MAXLEN 15
 
 int getline(char line[], int lim);
-void replacetabs(char str[]);
+void detab(char line[], int stops);
 
 int main(int argc, char const *argv[])
 {
-	
+	printf("%d\n", 0 % 2);
 
 	return 0;
 }
@@ -20,18 +20,18 @@ int getline(char line[], int lim)
 		line[i] = '0';
 
 	for (i = 0; i < (lim - 1) && (c = getchar()) != '\n'; ++i)
-		str[i] = c;
+		line[i] = c;
 
-	str[i] = '\0';
+	line[i] = '\0';
 
 	return i;
 }
 
-void replacetabs(char str[])
+void detab(char line[], int stops)
 {
 	int i;
 
-	for (i = 0; str[i] != '\0'; ++i) {
-
+	for (i = 0; line[i] != '\0'; ++i) {
+		printf("%s\n", line);
 	}
 }
