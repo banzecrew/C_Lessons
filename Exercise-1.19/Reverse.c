@@ -42,7 +42,9 @@ void reverse(int line[])
 {
 	int begin, len;
 
-	for (begin = 0; begin < (len = (getlen(line) - begin)); ++begin) {
+	len = getlen(line);
+
+	for (begin = 0; begin < (len - begin); ++begin) {
 		line[begin] = line[begin] + line[len];
 		line[len]   = line[begin] - line[len];
 		line[begin] = line[begin] - line[len];
