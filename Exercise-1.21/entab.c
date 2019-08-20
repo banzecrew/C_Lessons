@@ -36,23 +36,5 @@ int getline(char s[], int lim)
 
 void entab(char s[], int stop)
 {
-    int i;
-    int blanks, pos;
-
-    pos = blanks = 0;
-
-    for (i = 0; s[i] != '\0'; ++i) {
-        if (s[i] == '\t') {
-            blanks = TAB_STOP - s[i] % TAB_STOP;
-            while (blanks > 0) {
-                printf("%c", ' ');
-                --blanks;
-                ++pos;
-            }
-        }
-        else {
-            printf("%c", s[i]);
-            ++pos;
-        }
-    }
+    
 }
