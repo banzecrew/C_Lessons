@@ -13,29 +13,7 @@ int main(int argc, char const *argv[])
 		
 	while (getline(line, MAXLEN))
 		detab(line, TAB_STOP);
-/*
-	int c, nb, pos;
 
-	nb = 0;
-	pos = 1;
-
-	while ((c = getchar()) != EOF) {
-		if (c == '\t') {
-			nb = TAB_STOP - (pos -1) % TAB_STOP;
-			while (nb > 0) {
-				putchar(' ');
-				++pos;
-				--nb;
-			}
-		} else if (c == '\n') {
-			putchar(c);
-			++pos;
-		} else {
-			putchar(c);
-			++pos;
-		}
-	}
-*/
 	return 0;
 }
 
@@ -63,12 +41,13 @@ void detab(char line[], int stops)
 
 	for (i = 0, j = 0; line[i] != '\0'; ++i, ++j) {
 		if (line[i] == '\t') {
-			blanks = stops - j % stops;
+			blanks = stops - (j % stops);
 			while (blanks > 0) {
 				putchar(' ');
 				--blanks;
 			} j = -1;
-		} else {
+		}
+		else {
 			printf("%c", line[i]);
 		}
 	}
