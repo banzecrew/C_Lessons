@@ -2,9 +2,14 @@
 
 #define MAXLEN 15
 
+<<<<<<< Updated upstream
 int getline(int line[], int lim);
 void reverse(int line[]);
 int getlen(int line[]);
+=======
+int getline(char str[], int lim);
+void reverse(char str[]);
+>>>>>>> Stashed changes
 
 
 int main(int argc, char const *argv[])
@@ -44,6 +49,7 @@ void reverse(int line[])
 
 	len = getlen(line);
 
+<<<<<<< Updated upstream
 	for (begin = 0; begin < (len - begin); ++begin) {
 		line[begin] = line[begin] + line[len];
 		line[len]   = line[begin] - line[len];
@@ -58,4 +64,12 @@ int getlen(int line[])
 	for (i = 0; line[i] != '\0'; ++i);
 
 	return i - 1;
+=======
+	return i;
+}
+
+void reverse(char str[], int len)
+{
+	
+>>>>>>> Stashed changes
 }
