@@ -35,15 +35,15 @@ int main(int argc, char const *argv[])
 				putchar('\t');
 			if (c == '\t')
 				nb = 0;
-			else {
+			else 
 				for (; nb > 0; --nb)
-					putchar(' ');
+					putchar('_');
 				putchar(c);
 				if (c == '\n')
 					pos = 0;
 				else if (c == '\t')
 					pos = pos + (TABINC - (pos - 1) % TABINC) - 1;
-		  		}
+		  	
 		  }
 
     return 0;
