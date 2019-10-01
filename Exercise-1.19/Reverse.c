@@ -12,7 +12,6 @@ int main(int argc, char const *argv[])
 	char c;
 	char str[MAXLEN];
 
-
 	printf("Enter string or press Ctrl+C\n");
 
 	while ((c = getline(str, MAXLEN))) {
@@ -58,7 +57,6 @@ int getlen(char line[])
 	int i;
 
 	for (i = 0; line[i] != '\0'; ++i);
-	
 
 	return i - 1;
 }
