@@ -2,7 +2,7 @@
 
 #define MAXLEN 15
 
-int getline(char line[], int lim);
+int getline(char line[], unsigned int lim);
 void reverse(char line[]);
 int getlen(char line[]);
 
@@ -23,7 +23,7 @@ int main(int argc, char const *argv[])
 	return 0;
 }
 
-int getline(char line[], int lim)
+int getline(char line[], unsigned int lim)
 {
 	int i;
 	char c;
