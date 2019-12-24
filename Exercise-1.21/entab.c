@@ -18,16 +18,16 @@ void entab(int stop)
 
 	nb = nt = 0;
 
-	for (pos = 1; (c = getchar()) != EOF; ++pos)
-		if (c == ' ') {
-			if (pos % TAB_STOP)
-				++nb;
-			else {
-				nb = 0;
-				++nt;
-			}
-		} else {
-			for (; nt > 0; --nt)
+  for (pos = 1; (c = getchar()) != EOF; ++pos)
+    if (c == ' ') {
+      if (pos % TAB_STOP)
+        ++nb;
+      else {
+        nb = 0;
+        ++nt;
+      }
+    } else {
+      for (; nt > 0; --nt)
 				putchar('\t');
 			if (c == '\t')
 				nb = 0;
