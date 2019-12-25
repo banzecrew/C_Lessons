@@ -2,7 +2,7 @@
 
 int main(int argc, char const *argv[])
 {
-	printf("EOF value is %d\n", EOF);
+  printf("EOF value is %d\n", EOF);
 
-	return 0;
+  return 0;
 }

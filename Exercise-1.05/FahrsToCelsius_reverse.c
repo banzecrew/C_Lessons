@@ -6,13 +6,14 @@
 
 int main(int argc, char const *argv[])
 {
-	float celsius, fahr;
+  float celsius, fahr;
 
-	printf("%s\t%s\n", "Fahrenheits", "Celsius");
+  printf("%s\t%s\n", "Fahrenheits", "Celsius");
 
-	for (fahr = MAX_TEMP; fahr >= MIN_TEMP; fahr -= STEP){
-		printf("%11.f%12.1f\n", fahr, (5.0 / 9.0) * (fahr - 32.0));
-	}
+  for (fahr = MAX_TEMP; fahr >= MIN_TEMP; fahr -= STEP)
+  {
+    printf("%11.f%12.1f\n", fahr, (5.0 / 9.0) * (fahr - 32.0));
+  }
 
-	return 0;
+  return 0;
 }
