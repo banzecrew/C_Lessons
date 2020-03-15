@@ -3,7 +3,7 @@
 #define MAXLEN 1000
 #define TAB_STOP 8
 
-int getline(char line[], int lim);
+int getmyline(char line[], int lim);
 void detab(char line[], int stops);
 
 int main(int argc, char const *argv[])
@@ -11,13 +11,13 @@ int main(int argc, char const *argv[])
 
   char line[MAXLEN];
 
-  while (getline(line, MAXLEN))
+  while (getmyline(line, MAXLEN))
     detab(line, TAB_STOP);
 
   return 0;
 }
 
-int getline(char line[], int lim)
+int getmyline(char line[], int lim)
 {
   int i, c;
 
